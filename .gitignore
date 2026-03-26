@@ -1,0 +1,12 @@
+#python ignores
+
+.venv/
+
+__pycache
+.env
+
+# React ignores
+
+frontend/node_modules/
+frontend/dist
+.DS_Store
