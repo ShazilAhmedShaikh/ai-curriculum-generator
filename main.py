@@ -38,19 +38,33 @@ async def generate_lesson(lesson_id: int, file: UploadFile = File(...)):
             extracted_text += page.get_text()
 
         # 2. AI ke liye Prompt (Command) banayen
+
         prompt = f"""
-                You are an expert academic AI Teacher Assistant. 
-                Analyze the provided syllabus text and generate a comprehensive, highly professional lesson plan for Lesson #{lesson_id}.
+                You are an expert Educational Curriculum Designer and AI Teacher Assistant. 
+                Analyze the provided syllabus and create a highly detailed, professional lesson plan for Week/Lesson #{lesson_id}.
 
-                The Lesson Plan MUST be written in strict, formal, and pure English. Do not use any other language.
+                FORMATTING RULES:
+                - Use strict, professional English.
+                - Add a blank line (spacing) after every paragraph and heading to make it highly readable.
+                - Use **Bold Text** for important keywords, time durations, and main concepts.
+                - Use clean bullet points (-) for lists.
+                - Do not write large blocks of text; keep paragraphs short (2-3 lines max).
 
-                Include the following sections clearly:
-                - 🎯 Lesson Objectives (What students will learn)
-                - 📚 Key Topics to Cover (Detailed breakdown)
-                - 💡 Interactive Activities (Engaging class exercises)
-                - 📝 Homework / Assignment (Practice tasks)
+                Include the following structured sections exactly as listed, using H2 (##) for main headings:
+                ## 🎯 Lesson Objectives
+                (List 3-4 clear, actionable objectives)
 
-                Format the output beautifully using Markdown (use # for main headings, ** for bold text, and - for bullet points).
+                ## 📚 Key Topics to Cover
+                (Detail the main concepts clearly)
+
+                ## 💡 Interactive Activities
+                (Explain the activity, duration, and execution clearly)
+
+                ## 📝 Homework / Assignment
+                (Give a clear, short assignment)
+
+                ## ⏱️ Quick End-of-Class Quiz
+                (Create a 5-minute quiz with 3 questions. Provide the correct answers clearly below the questions).
 
                 Syllabus Text:
         {extracted_text}

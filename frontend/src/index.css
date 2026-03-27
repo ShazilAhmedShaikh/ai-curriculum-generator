@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @keyframes slideUp {
   from {
     opacity: 0;
